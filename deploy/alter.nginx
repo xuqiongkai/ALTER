@@ -1,0 +1,19 @@
+server {
+    # server_name <SERVER>
+    listen 80 default_server;
+
+    location / {
+        # root <full path to the folder containing the index file>;
+        # index index.html;
+        proxy_pass http://127.0.0.1:3000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP ip_address;
+    }
+
+    location /application {
+        # rewrite ^/app/(.*) /$1 break;
+        proxy_pass http://localhost:8000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP ip_address;
+     }
+}

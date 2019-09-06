@@ -1,0 +1,130 @@
+import React, { Component } from 'react'
+import MuuriGrid from 'react-muuri';
+import './index.css'
+import EditableDiv from "components/EditableDiv";
+import { Menu, Item, Separator, Submenu, MenuProvider, contextMenu } from 'react-contexify';
+import 'react-contexify/dist/ReactContexify.min.css';
+
+const onClick = ({ event, props }) => console.log(event,props);
+const MyAwesomeMenu = ({deleteRow}) => (
+    <Menu id='menu_id' style={{zIndex: 1}}>
+       <Item onClick={deleteRow}>Delete</Item>
+       {/* <Item onClick={onClick}>Ipsum</Item>
+       <Separator />
+       <Item disabled>Dolor</Item>
+       <Separator />
+       <Submenu label="Foobar">
+        <Item onClick={onClick}>Foo</Item>
+        <Item onClick={onClick}>Bar</Item>
+       </Submenu> */}
+    </Menu>
+);
+
+class Grid extends Component {
+  constructor () {
+    super();
+
+    this.removeElement = this.removeElement.bind(this);
+  }
+
+  componentDidMount () {
+    this.grid = new MuuriGrid({
+      node: this.gridElement,
+      defaultOptions: {
+        dragEnabled: true, // See Muuri's documentation for other option overrides.
+        // dragStartPredicate: { distance: 0, delay: 0, handle: false },
+        dragStartPredicate: function (item, e) {
+            // Start moving the item after the item has been dragged for one second.
+            if (e.deltaTime > 200) {
+              return true;
+            }
+          }
+       },
+    });
+
+    // An example of how to use `getEvent()` to make `synchronize()` update the grid.
+    this.grid.getEvent('dragEnd');
+  }
+
+  componentWillUnmount () {
+    this.grid.getMethod('destroy'); // Required: Destroy the grid when the component is unmounted.
+  }
+
+  removeElement () {
+    // An example of how to use `getMethod()` to remove an element from the grid.
+    if (this.gridElement && this.gridElement.children.length) {
+      this.grid.getMethod('remove', this.gridElement.children[0], {removeElements: true});
+    }
+  }
+
+  deleteRow = ({props}) => {
+    if (this.gridElement && this.gridElement.children.length) {
+        console.log(this.gridElement);
+        // this.gridElement.children.((o) => console.log(o));
+        // this.grid.getMethod('remove', this.gridElement.children[0], {removeElements: true});
+    }
+  };
+
+  handleContextMenu(e) {
+    // always prevent default behavior
+    e.preventDefault();
+
+    // Don't forget to pass the id and the event and voila!
+    contextMenu.show({
+    id: 'menu_id',
+    event: e,
+    });
+  }
+
+
+  render () {
+    var Editablediv = EditableDiv("div");
+    var Editableh1 = EditableDiv("h1");
+    console.log(this.deleteRow);
+    return (
+      <div className="grid grid-1" onContextMenu={this.handleContextMenu}>
+        {/* Assign a ref to the grid container so the virtual DOM will ignore it for now (WIP). */}
+        <div ref={gridElement => this.gridElement = gridElement}>
+          {/* Required: `item` and `item-content` classNames */}
+          <div className="item" style={{width:100 + "px"}} onClick={(e) => {console.log('got single');}}> 
+            {/* <div className="item-content" >This</div> */}
+            {/* <MenuProvider id="menu_id"> */}
+                <Editablediv className="item-content" value="This"></Editablediv>
+            {/* </MenuProvider> */}
+            {/* <Editableh1 className="item-content" value="This"></Editableh1> */}
+          </div>
+          <div className="item" style={{width:50 + "px"}} onDoubleClick={(e) => {console.log('double'); console.log(e);}}>
+            <div className="item-content" >is</div>
+          </div>
+          <div className="item" style={{width:200 + "px", background: "#00F"}}>
+            <div className="item-content" style={{background: "#00f"}} >interesting</div>
+          </div>
+          <div className="item" style={{width:20 + "px"}}>
+            <div className="item-content" >I</div>
+          </div>
+          <div className="item" style={{width:150 + "px"}}>
+            <div className="item-content" >suppose</div>
+          </div>
+          <div className="item" style={{width:50 + "px"}}>
+            <div className="item-content" >to</div>
+          </div>
+           <div className="item" style={{width:50 + "px"}}>
+            <div className="item-content" >be</div>
+          </div>
+          <MyAwesomeMenu deleteRow={this.deleteRow}></MyAwesomeMenu>
+        </div>
+        <button
+          className="button"
+          onClick={() => this.removeElement()}
+        >
+          Remove 1st Element
+        </button>
+        <div onDoubleClick={(e) => {console.log('got double');}} >
+            Double click
+        </div>
+      </div>
+    )
+  }
+}
+
+export default Grid;
