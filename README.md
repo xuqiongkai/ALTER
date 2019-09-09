@@ -3,6 +3,10 @@
 
 This is the project for "[ALTER: Auxiliary Text Rewriting Tool for Natural Language Generation]()" (EMNLP2019 demo) ([cite](#citation)). This tool aims at facilitating the rewriting process for natural language generation tasks by i) recording word-level revision histories and ii) incorporating flexible auxiliary edit support and instant feedback to annotators.
 
+<p align="center">
+<img src="screenshot.png" width="800">
+</p>
+
 ##  1. Installation
 
 ### 1.1 Prerequisites
