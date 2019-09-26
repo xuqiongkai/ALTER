@@ -107,6 +107,14 @@ ALLOWED_ORIGINS = ["http://localhost:3000", "http://1.2.3.4:3000"]
 docker run -d --rm -p 3000:3000 -v `pwd`:/app/webapp alter:latest /bin/bash -c "cd /app/webapp; SERVICE_SERVER=http://1.2.3.4:8000/application npm start"
 ```
 
+## 3. Export
+
+A script function is provided to easily export all annotation jobs, with history of changes grouped into a single Json file for each job.
+
+```
+python3 src/manage.py export_jobs SAVE_DIR
+```
+
 ## License
 
 This project is under MIT License - see  [LICENSE.md](LICENSE.md)  file for more details.
