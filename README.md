@@ -1,7 +1,7 @@
 
 # ALTER
 
-This is the project for "[ALTER: Auxiliary Text Rewriting Tool for Natural Language Generation]()" (EMNLP2019 demo) ([cite](#citation)). This tool aims at facilitating the rewriting process for natural language generation tasks by i) recording word-level revision histories and ii) incorporating flexible auxiliary edit support and instant feedback to annotators.
+This is the project for "[ALTER: Auxiliary Text Rewriting Tool for Natural Language Generation](https://arxiv.org/pdf/1909.06564.pdf)" (EMNLP2019 demo) ([cite](#citation)). This tool aims at facilitating the rewriting process for natural language generation tasks by i) recording word-level revision histories and ii) incorporating flexible auxiliary edit support and instant feedback to annotators.
 
 <p align="center">
 <img src="screenshot.png" width="800">
@@ -50,7 +50,7 @@ python src/manage.py download_models
 
 4. **bert:** the bert model will be automatically downloaded to `data/models`, at the first request.
 
-NB: You can adapt the models to your target tasks, by replacing the models in `data/models` or  `gender_model` and modify the paths of corresponding models in `config.py`.
+NB: You can adapt the models to your target tasks, by replacing the models in `data/models` or  `gender_model` and modifying the paths of corresponding models in `config.py`.
 
 
 ### 1.3 Frontend Webapp
@@ -113,7 +113,7 @@ docker run -d --rm -p 3000:3000 -v `pwd`:/app/webapp alter:latest /bin/bash -c "
 
 ## License
 
-This project is under MIT License - see  [LICENSE.md](LICENSE.md)  file for more details.
+This project is under MIT License - see  [LICENSE.md](LICENSE.md) for more details.
 
 ## Citation
 
