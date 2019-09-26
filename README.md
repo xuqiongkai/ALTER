@@ -113,7 +113,7 @@ docker run -d --rm -p 3000:3000 -v `pwd`:/app/webapp alter:latest /bin/bash -c "
 
 ## License
 
-This project is under MIT License - see  [LICENSE.md](LICENSE.md) for more details.
+This project is under MIT License - see  [LICENSE](LICENSE) for more details.
 
 ## Citation
 
