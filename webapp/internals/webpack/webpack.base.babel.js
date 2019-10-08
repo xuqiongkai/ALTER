@@ -118,6 +118,8 @@ module.exports = options => ({
     // drop any unreachable code.
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development',
+      SERVICE_SERVER: null,
+      REFRESH_AT_EACH_STEP: null,
     }),
   ]),
   resolve: {

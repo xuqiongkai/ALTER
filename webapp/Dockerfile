@@ -35,9 +35,9 @@ RUN source $NVM_DIR/nvm.sh \
 ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
 ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
-WORKDIR /app
+WORKDIR /app/webapp
 
-COPY package.json /app
+# COPY package.json /app
 RUN npm install
 RUN npm install -g cross-env
 
