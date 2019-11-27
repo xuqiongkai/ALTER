@@ -1,6 +1,6 @@
 # ALTER
 
-This is the project for "[ALTER: Auxiliary Text Rewriting Tool for Natural Language Generation](https://arxiv.org/pdf/1909.06564.pdf)" (EMNLP2019 demo) ([cite](#citation)). This tool aims at facilitating the rewriting process for natural language generation tasks by i) recording word-level revision histories and ii) incorporating flexible auxiliary edit support and instant feedback to annotators.
+This is the project for "[ALTER: Auxiliary Text Rewriting Tool for Natural Language Generation](https://www.aclweb.org/anthology/D19-3003)" (EMNLP2019 demo) ([cite](#citation)). This tool aims at facilitating the rewriting process for natural language generation tasks by i) recording word-level revision histories and ii) incorporating flexible auxiliary edit support and instant feedback to annotators.
 
 <p align="center">
 <img src="screenshot.png" width="800">
@@ -123,9 +123,10 @@ If you use this repository in your project, we would appreciate you citing our p
   title={ALTER: Auxiliary Text Rewriting Tool for Natural Language Generation},
   author={Qiongkai Xu, Chenchen Xu and Lizhen Qu},
   booktitle={2019 Conference on Empirical Methods in Natural Language Processing and 9th International Joint Conference on Natural Language Processing},
-  pages={},
+  pages={13-18},
   year={2019},
+  url={https://www.aclweb.org/anthology/D19-3003},
+  doi={10.18653/v1/D19-3003},
   organization={SIGDAT}
 }
 ```
-
